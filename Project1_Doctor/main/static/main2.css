@@ -1,0 +1,683 @@
+/* ******************** page basics *********************** */
+
+
+/* start of scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(223, 223, 223);
+    box-shadow: 0 0 10px rgb(236, 236, 236) inset;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--purple-color);
+    height: 150px;
+    transition: .5s ease;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--darkblue-color);
+    height: 150px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 255, 0.253);
+    
+}
+
+
+/* end of scrollbar */
+
+
+/* start of appontment button */
+
+.appontment ,
+.containerfull form .submit{
+    padding: 10px 20px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--pgray-color);
+    background-color: rgba(245, 245, 210, 0.205);
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.appontment:hover,
+.containerfull form .submit:hover {
+    color: white;
+}
+
+.appontment::before ,
+.containerfull form .submit::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, blue, var(--darkblue-color));
+    transition: transform .5s;
+    transform-origin: left;
+    transition-timing-function: ease;
+    z-index: -1;
+}
+
+.appontment::before,
+.containerfull form .submit::before {
+    transform: scaleX(0);
+}
+
+.appontment:hover::before ,
+.containerfull form .submit:hover::before {
+    transform: scaleX(1);
+}
+/* end of appontment button */
+
+
+/* start of loading sectoin */
+
+.loading .container {
+    height: 200px;
+    padding: 33px;
+    text-align: center;
+}
+
+.loading .container h1 {
+    margin: 0;
+    color: var(--h1gray-color);
+    font-size: 60px;
+    z-index: -1;
+}
+
+.loading .container p {
+    color: var(--pgray-color);
+}
+/* end of loading sectoin */
+
+
+
+
+/* start of loading screens */
+.loading-screenn {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    z-index: 233;
+    background-color: rgb(66, 163, 248);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s linear;
+}
+
+.loading-screenn h2 {
+    font-size: 30px;
+    color: white;
+}
+
+.loading-screenn .parent {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 20px solid blue;
+    border-right: 20px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate infinite 6s;
+    margin-bottom: 50px;
+}
+
+.loading-screenn .son {
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 20px solid rgb(255, 255, 255);
+    border-right: 20px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(90deg);
+    animation: rotate infinite 3s
+}
+
+.loading-screenn .grand-son {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border-bottom: 10px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 10px solid transparent;
+    border-left: 10px solid blue;
+    border-right: 10px solid blue;
+    transform: rotate(80deg);
+    animation: rotate infinite 2s;
+    background-image: url(/project/img/logo.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-screenn h2 {
+    position: absolute;
+    top: 500px;
+    font-size: 20px;
+    font-weight: 400;
+    z-index: 33; 
+    text-shadow: 0px 5px 4px black;
+}
+
+/* end of loading screens */
+
+
+
+
+
+/* start make an appontment loading and form*/
+
+/* the splach container*/
+.containerfull{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 111;
+    background-color: rgba(0, 0, 0, 0.664);
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* laodign screen */
+.loading-screen{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 470PX;
+    height: 540PX;
+    z-index: 22;
+    transition: 0.2s linear;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgb(116, 116, 116);
+    position: relative;
+    overflow: hidden;
+}
+.loading-screen .container-load{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.loading-screen h2{
+    text-align: center;
+    margin: 20px;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    animation: jumpword 1s linear infinite reverse;
+}
+@keyframes jumpword {
+    0%{
+        bottom: 0px;
+        text-shadow: 0px 7px 4px #aaa;
+    }
+    50%{
+        bottom: 5px;
+        text-shadow: none;
+    }
+    100%{
+        bottom: 0px;
+        text-shadow: 0px 5px 1px #aaa;
+    }
+}
+.loading-screen .line{
+    padding: 7px 0px 7px 9px;
+    border-radius: 15px;
+    border: 2px solid blue;
+    width: 300px;
+    height: 40px;
+    background-color: var(--darkblue-color);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 11;
+}
+.loading-screen .innerline{
+    border-radius: 15px;
+    width:0%;
+    height: 100%;
+    background-color: rgb(0, 4, 255);
+    animation: loading 8s linear;
+    animation-fill-mode: forwards;
+}
+.loading-screen img{
+    width: 60px;
+    margin-left: -26px;
+}
+@keyframes loading {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+} 
+.containerfull .loading-screen .ball{
+    background-color: rgb(12, 110, 202);
+    animation: border 6s linear infinite reverse;
+
+}
+.containerfull .loading-screen .ball:nth-child(1) {
+    width: 200px;
+    height: 250px;
+    top: 400px;
+    left: -100px;
+    transform: rotate(60deg);
+}
+
+.containerfull .loading-screen  .ball:nth-child(2) {
+    width: 200px;
+    height: 150px;
+    top: 50px;
+    right: 400px;
+    transform: rotate(35deg);
+}
+
+.containerfull .loading-screen .ball:nth-child(3) {
+    width: 220px;
+    height: 350px;
+    top: 0px;
+    right: -100px;
+    transform: rotate(160deg);
+
+}
+.containerfull .loading-screen .ball:nth-child(4) {
+    width: 200px;
+    height: 200px;
+    bottom:  -40px;
+    right: 100px;
+}
+.containerfull .loading-screen h2 span{
+    position: relative;
+    animation: jump 1s infinite linear;
+}
+@keyframes jump {
+    0%{
+        bottom: 0px;
+    }
+    50%{
+        bottom: 10px;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+.containerfull .loading-screen h2 span:first-child{
+    animation-delay: 0.2s;
+}
+.containerfull .loading-screen h2 span:nth-child(2){
+    animation-delay: 0.4s;
+}
+.containerfull .loading-screen h2 span:nth-child(3){
+    animation-delay: 0.6s;
+}
+/* start of apponment form */
+
+.containerfull form{
+    display: none;
+    width: 470px;
+    height: 540px;
+    background-color: white;
+    padding: 15px 25px;
+    display: none;
+    flex-direction: column;
+    gap: 13px;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid rgb(116, 116, 116);
+}
+.containerfull form .line{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.containerfull form img{
+    width: 100px;
+}
+.containerfull form h2{
+    /* width: 100%; */
+}
+.containerfull form .inputcon{
+    display: flex;
+    /* background-color: red; */
+    gap: 20px;
+    padding: 10px;
+}
+.containerfull form .inputcon label{
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    color: var(--darkblue-color);
+}
+.containerfull form .inputcon input{
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid var(--h1gray-color);
+    padding: 7px 5px 7px 10px;
+    color: black;
+    outline: none;   
+    transition: 1s linear;
+}
+.containerfull form .inputcon input:focus{
+    border-bottom: 1px solid var(--darkblue-color);
+}
+.containerfull form .inputcon input::placeholder{
+    /* text-align: center; */
+    font-size: 10px;
+}
+.containerfull form button{
+    width: fit-content;
+}
+.containerfull form .submit{
+    align-self: center;
+    padding: 7px 12px;
+    margin-top: 20px;
+}
+.containerfull form button:nth-of-type(2){
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height: 30px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(255, 115, 0);
+    color: white;
+    font-weight: bold;
+}
+.containerfull form h4 , a{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--pgray-color);
+}
+.containerfull a{
+    color: var(--darkblue-color);
+}
+.containerfull form .line h2 span{
+    color: var(--darkblue-color);
+}
+.containerfull form .inputcon:nth-child(5){
+    display: flex;
+    justify-content: space-around;
+}
+.containerfull form .inputcon:nth-child(5) label{
+    margin-bottom: 10px;
+}
+.containerfull form .inputcon:nth-child(5) select{
+    padding: 2px 3px;
+
+}
+/* end of appontment form */
+
+
+/* start of rate card */
+.ratecontainer{
+    width: 450px;
+    height: 250px;
+    padding: 15px 20px;
+    position: relative;
+    display: flex;
+    /* display: none; */
+    justify-content: space-between;
+    background-color: white;
+    position: fixed;
+    bottom: -400px;
+    left: 20px;
+    z-index: 11;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    transition: 1s linear;
+}
+.ratecontainer .left{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* display: none; */
+    gap: 10px;
+}
+.ratecontainer .left h2{
+    font-size: 90px;
+    color: royalblue;
+}
+.ratecontainer .left h3{
+    color: orangered    ;
+    font-weight: 400;
+}
+.ratecontainer .left ul{
+    display: flex;
+    gap: 10px;
+}
+.ratecontainer .left ul li i{
+    cursor: pointer;
+}
+.ratecontainer button{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+    padding:  3px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 22;
+}
+.ratecontainer .right{
+    /* display: none; */
+}
+.ratecontainer .right ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ratecontainer .right ul li i{
+    color: royalblue;
+}
+.ratecontainer .right ul li #number{
+    font-size: 20px;
+}
+.ratecontainer .right ul li .tongue{
+    width: 150px;
+    height: 21px;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.ratecontainer .right ul li .tongue span{
+    position: absolute;
+    left: 5px;
+    top: 0;
+    color: rgb(255, 255, 255);
+    z-index: 22;
+}
+.ratecontainer .right ul li .tongue .line{
+    position: absolute;
+    height: 100%;
+    background-color: lightskyblue;
+}
+.ratecontainer .right ul li:nth-child(1) .tongue .line{
+    width: 80%;
+}
+.ratecontainer .right ul li:nth-child(2) .tongue .line{
+    width: 60%;
+}
+.ratecontainer .right ul li:nth-child(3) .tongue .line{
+    width: 40%;
+}
+.ratecontainer .right ul li:nth-child(4) .tongue .line{
+    width: 20%;
+}
+.ratecontainer .right ul li:nth-child(5) .tongue .line{
+    width: 13%;
+}
+.rateres{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 95%;
+    height: 100%;
+    background-color: white;
+    display: none;
+}
+.rateres .circle{
+    margin: 10px auto;
+    width: 110px;
+    height: 110px;
+    border: 2px solid green;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 20px;
+    z-index: 2;
+}
+.rateres .circle::before{
+    content: " ";
+    position: absolute;
+    top: 54px;
+    left: 31px;
+    width: 2px;
+    background-color: green;
+    transform: rotate(-30deg);
+    border-bottom-left-radius: 4px;
+    animation: resize .2s linear forwards;
+    transform-origin: 0 0 ;
+
+}
+.rateres .circle::after{
+    content: " ";
+    position: absolute;
+    top: 73.5px;
+    left: 45px;
+    width: 2px;
+    height: 0px;
+    background-color: green;
+    transform: rotate(210deg);
+    transform: translate(-1);
+    animation: resize2 .4s linear forwards ;
+    animation-delay: .2s;
+    transform-origin: 0 0 ;
+    z-index: 1;
+
+}
+.rateres h3,
+.rateres h4{
+    text-align: center;
+    background-color: white;
+    z-index: 11;
+    color: rgb(126, 126, 126);
+}
+.rateres h3{
+    margin-top:30px;
+}
+@keyframes resize {
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 24px;
+    }
+}
+@keyframes resize2 {
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 53px;
+    }
+}
+
+
+
+/* start of goback home button  */
+.goback{
+    display: none;
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid rgb(196, 193, 193);
+    z-index: 11;
+}
+.goback #gohome{
+    border: none;
+    color:var(--darkblue-color);
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    animation: arrow 4s linear infinite;
+}
+.goback:hover #gohome{
+    color: red;
+}
+@keyframes arrow {
+    0%{
+        bottom: -50px;
+    }
+    100%{
+        bottom: 50px;
+    }
+}
+/* end of goback home button  */
+/* ******************** page basics *********************** */

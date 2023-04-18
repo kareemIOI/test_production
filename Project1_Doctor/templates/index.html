@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+<body>
+<form class="d-flex flex-column gap-3 justify-content-center align-items-center p-4 px-sm-5 px-4" action="register"  method='POST'>
+    {% csrf_token %}
+    <p class="text-white fs-3 text-center">Sign Up</p>
+    <div class="input-row d-flex align-items-center justify-content-center flex-wrap gap-2 gap-xl-5">
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class=" mb-0 fs-5 text-white">UserName :</p>                        
+            <input type="text" class="p-2" name="username" required placeholder = "Username">
+        </div>
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class="mb-0 fs-5 text-white">FirstName :</p>
+            <input type="text" class="p-2" name="first_name" required placeholder = "Firstname">
+        </div>
+    </div>
+    
+    <div class="input-row d-flex align-items-center justify-content-center flex-wrap gap-2 gap-xl-5">
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class="mb-0 fs-5 text-white">LastName :</p>
+            <input type="text" class="p-2" name="last_name" required placeholder = "Lastname">
+        </div>
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class="mb-0 fs-5 text-white">Email :</p>
+            <input type="text" class="p-2" name="email" placeholder = "Email">
+        </div>
+    </div>
+    <div class="input-row d-flex align-items-center justify-content-center flex-wrap gap-2 gap-xl-5">
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class="mb-0 fs-5 text-white">Password :</p>
+            <input type="password" class="p-2" name="password1" required placeholder = "password">
+        </div>
+        <div class="input d-flex align-items-center gap-2 flex-wrap">
+            <p class="mb-0 fs-5 text-white">Confirm Password :</p>
+            <input type="password" class="p-2" name="password2" required     placeholder = "Confirm password">
+        </div>
+    </div>
+    <button class="align-self-center px" type="submit">Let's Eat</button>
+    <div>
+        <a href="{% url 'required_login' %}">Already Have an Acount</a>
+    </div>
+</form> 
+</body>
+</html>
